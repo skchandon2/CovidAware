@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trash Aware</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Waste sorting game" />
+    <meta name="keywords" content="waste,experience,trash,sorting,game" />
+    <meta property="og:site_name" content="Trash Aware" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home | Trash Aware | Game" />
+    <meta property="og:url" content="https:///" />
+    <meta property="og:description" content="Waste sorting gamet" />
+    <meta property="og:updated_time" content="2020-06-27T12:58:50-04:00" />
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/jquery.csv.min.js"></script>
+    <style>
+        .modal-dialog {
+            background-color: rgba(0,0,0,.59) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="background-image: linear-gradient(#8debfc,#bfeff8, #FEFEFE,#9ec9dd, rgb(77, 207, 17));">
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="height: 90vh; width: 90vw;">
+                    <svg style="height: 91vh; width: 90vw;">
+                        <defs>
+                            <filter id="f1" x="0" y="0">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+                            </filter>
+                            <filter id="f2" x="0" y="0">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+                            </filter>
+                        </defs>
+                        <!--[cloud icon. from: https://icomoon.io/]-->
+                        <path fill="#fff" filter="url(#f2)" d="M255.778 144.342c0-18.242-12.594-33.533-29.554-37.661-0.722-28.6-24.102-51.569-52.858-51.569-16.842 0-31.837 7.886-41.521 20.162-5.43-7.022-13.93-11.546-23.49-11.546-16.402 0-29.698 13.306-29.698 29.716 0 1.43 0.106 2.834 0.302 4.212-2.494-0.45-5.058-0.698-7.682-0.698-23.778-0.002-43.050 19.286-43.050 43.076s19.274 43.077 43.050 43.077l145.836-0.002c21.364-0.042 38.669-17.382 38.669-38.766z"></path>
+                        <path fill="#fff" filter="url(#f2)" d="M455.778 184.342c0-18.242-12.594-33.533-29.554-37.661-0.722-28.6-24.102-51.569-52.858-51.569-16.842 0-31.837 7.886-41.521 20.162-5.43-7.022-13.93-11.546-23.49-11.546-16.402 0-29.698 13.306-29.698 29.716 0 1.43 0.106 2.834 0.302 4.212-2.494-0.45-5.058-0.698-7.682-0.698-23.778-0.002-43.050 19.286-43.050 43.076s19.274 43.077 43.050 43.077l145.836-0.002c21.364-0.042 38.669-17.382 38.669-38.766z"></path>
+                        <path fill="#fff" filter="url(#f2)" d="M705.778 124.342c0-18.242-12.594-33.533-29.554-37.661-0.722-28.6-24.102-51.569-52.858-51.569-16.842 0-31.837 7.886-41.521 20.162-5.43-7.022-13.93-11.546-23.49-11.546-16.402 0-29.698 13.306-29.698 29.716 0 1.43 0.106 2.834 0.302 4.212-2.494-0.45-5.058-0.698-7.682-0.698-23.778-0.002-43.050 19.286-43.050 43.076s19.274 43.077 43.050 43.077l145.836-0.002c21.364-0.042 38.669-17.382 38.669-38.766z"></path>
+                        <path fill="#fff" filter="url(#f2)" d="M945.778 99.342c0-18.242-12.594-33.533-29.554-37.661-0.722-28.6-24.102-51.569-52.858-51.569-16.842 0-31.837 7.886-41.521 20.162-5.43-7.022-13.93-11.546-23.49-11.546-16.402 0-29.698 13.306-29.698 29.716 0 1.43 0.106 2.834 0.302 4.212-2.494-0.45-5.058-0.698-7.682-0.698-23.778-0.002-43.050 19.286-43.050 43.076s19.274 43.077 43.050 43.077l145.836-0.002c21.364-0.042 38.669-17.382 38.669-38.766z"></path>
+                        <path fill="#fff" filter="url(#f2)" d="M1205.778 133.342c0-18.242-12.594-33.533-29.554-37.661-0.722-28.6-24.102-51.569-52.858-51.569-16.842 0-31.837 7.886-41.521 20.162-5.43-7.022-13.93-11.546-23.49-11.546-16.402 0-29.698 13.306-29.698 29.716 0 1.43 0.106 2.834 0.302 4.212-2.494-0.45-5.058-0.698-7.682-0.698-23.778-0.002-43.050 19.286-43.050 43.076s19.274 43.077 43.050 43.077l145.836-0.002c21.364-0.042 38.669-17.382 38.669-38.766z"></path>
+                
+                        <!--building-->
+                        <path fill="#dedede" filter="url(#f1)" d="M384 544h128v-256h-128v256zM464 320h32v32h-32v-32zM464 384h32v32h-32v-32zM464 448h32v32h-32v-32zM400 320h32v32h-32v-32zM400 384h32v32h-32v-32zM400 448h32v32h-32v-32zM528 368h112v16h-112zM528 544h32v-64h48v64h32v-144h-112z"></path>
+                        
+                        <!--library-->
+                        <path fill="#dedede" filter="url(#f1)" d="M347 539.333v-10h-10v-60h10v-10h-30v10h10v60h-30v-60h10v-10h-30v10h10v60h-30v-60h10v-10h-30v10h10v60h-30v-60h10v-10h-30v10h10v60h-10v10h-10v10h170v-10h-10z"></path>
+                        <path fill="#dedede" filter="url(#f1)" d="M267 389.333h10l80 50v10h-170v-10l80-50z"></path>
+
+                        <!--home-->
+                        <path fill="#dedede" filter="url(#f1)" d="M172.37 490.599l-24.889-24.889v-37.334h-16.592v20.74l-24.889-24.889-66.37 66.37v4.149h16.593v41.481h41.481v-24.889h16.593v24.889h41.481v-41.481h16.593z"></path>
+                        <path fill="#dedede" filter="url(#f1)" d="M872.37 490.599l-24.889-24.889v-37.334h-16.592v20.74l-24.889-24.889-66.37 66.37v4.149h16.593v41.481h41.481v-24.889h16.593v24.889h41.481v-41.481h16.593z"></path>
+                        <path fill="#dedede" filter="url(#f1)" d="M1172.37 490.599l-24.889-24.889v-37.334h-16.592v20.74l-24.889-24.889-66.37 66.37v4.149h16.593v41.481h41.481v-24.889h16.593v24.889h41.481v-41.481h16.593z"></path>
+ 
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div id="displayItem" style="border: 3px solid #777; width:300px; text-align: center; position: absolute; padding: 10px; font-weight: bold; font-size: 21px">
+        </div>
+
+        <div id="score" style="border: 3px solid #777; width:300px; text-align: center; position: absolute; top: 60px; padding: 10px; font-weight: bold; font-size: 21px">
+            <span id="curscore"></span> of <span id="turncount"></span>
+        </div>
+
+        <div id="debugx" style="display: none"></div>
+
+        <!--Bins-->
+        <div id="garbage_bin" data-bintype="g" style="cursor:pointer; position: absolute; left: 20px; top: 0px">            
+            <svg id="garbage_bin_svg" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="140px" height="140px">
+                <path d="M 10.3125 -0.03125 C 8.589844 -0.03125 7.164063 1.316406 7 3 L 2 3 L 2 5 L 6.96875 5 L 6.96875 5.03125 L 17.03125 5.03125 L 17.03125 5 L 22 5 L 22 3 L 17 3 C 16.84375 1.316406 15.484375 -0.03125 13.8125 -0.03125 Z M 10.3125 2.03125 L 13.8125 2.03125 C 14.320313 2.03125 14.695313 2.429688 14.84375 2.96875 L 9.15625 2.96875 C 9.296875 2.429688 9.6875 2.03125 10.3125 2.03125 Z M 4 6 L 4 22.5 C 4 23.300781 4.699219 24 5.5 24 L 18.59375 24 C 19.394531 24 20.09375 23.300781 20.09375 22.5 L 20.09375 6 Z M 7 9 L 8 9 L 8 22 L 7 22 Z M 10 9 L 11 9 L 11 22 L 10 22 Z M 13 9 L 14 9 L 14 22 L 13 22 Z M 16 9 L 17 9 L 17 22 L 16 22 Z"/>
+            </svg>
+        </div>
+        
+        <div id="recycle_bin" data-bintype="r" style="cursor:pointer; position: absolute; left: 170px; top: 0px">            
+            <svg id="recycle_bin_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="140px" height="140px">
+                <path id="recycle_bin_corepath" fill="#096ABB" d="M7.5 34.5L7.5 34 3.495 5.929 3.497 5.5 36.5 5.5 36.5 6 32.505 33.929 32.502 34.5z"/>
+                <path fill="#036" d="M35.99,6l-3.98,27.859L32,33.929V34H8v-0.071l-0.01-0.07L4.01,6H35.99 M37,5H3v1l4,28v1h26v-1l4-28 V5L37,5z"/>
+                <path fill="#096ABB" d="M3,5.5C2.725,5.5,2.5,5.276,2.5,5V2c0-0.276,0.225-0.5,0.5-0.5h34c0.275,0,0.5,0.224,0.5,0.5v3 c0,0.276-0.225,0.5-0.5,0.5H3z"/>
+                <path fill="#036" d="M37,2v3H3V2H37 M37,1H3C2.448,1,2,1.448,2,2v3c0,0.552,0.448,1,1,1h34c0.552,0,1-0.448,1-1V2 C38,1.448,37.552,1,37,1L37,1z"/>
+                <g>
+                    <path fill="#096ABB" d="M10,38.5c-1.379,0-2.5-1.122-2.5-2.5v-1.5h25V36c0,1.378-1.121,2.5-2.5,2.5H10z"/>
+                    <path fill="#036" d="M32,35v1c0,1.103-0.897,2-2,2H10c-1.103,0-2-0.897-2-2v-1H32 M33,34H7v2c0,1.657,1.343,3,3,3h20 c1.657,0,3-1.343,3-3V34L33,34z"/>
+                </g>
+                <g>
+                    <path fill="#cdf" d="M27.262 21.773l-1.127-1.902-.705 1.548-1.704-.121 1.127 1.902H21.62l-1.352 1.4L21.62 26h3.24c1.168 0 2.114-.498 2.595-1.364C27.932 23.775 27.856 22.721 27.262 21.773zM24.588 17.128l-2.134-3.624C21.858 12.548 20.976 12 20.034 12c-.941 0-1.822.548-2.435 1.531l-1.338 2.254 1.661-.033.745 1.463 1.323-2.227c.015-.026.031-.049.045-.07.008.012.016.025.025.038l2.114 3.592 1.918.486L24.588 17.128zM15.156 23.184l1.902-3.311-.495-1.829-1.933.434-1.895 3.298c-.592 1.008-.658 2.067-.179 2.904C13.035 25.519 13.977 26 15.14 26h3.452l-.999-1.4.999-1.4h-3.445C15.149 23.195 15.153 23.19 15.156 23.184z"/>
+                </g>
+            </svg>
+        </div>
+
+        <div id="green_bin" data-bintype="o" style="cursor:pointer; position: absolute; left: 270px; top: 0px">
+            <svg id="green_bin_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 50 100 100" width="180px" height="180px">
+                <path id="greenbin_core_path" fill="#030" d="M81.9 126H42.5c-1.7 0-3-1.3-3-3s1.3-3 3-3h42.9c1.7 0 3 1.3 3 3S83.6 126 81.9 126z"/>
+                <!--path fill="#030" d="M81.9 126H29c-1.7 0-3-1.3-3-3s1.3-3 3-3h52.9c1.7 0 3 1.3 3 3S83.6 126 81.9 126zM14 126c-.8 0-1.6-.3-2.1-.9-.6-.6-.9-1.3-.9-2.1s.3-1.6.9-2.1c1.1-1.1 3.1-1.1 4.2 0 .6.6.9 1.3.9 2.1s-.3 1.6-.9 2.1C15.6 125.7 14.8 126 14 126z"/-->
+                <path fill="#396" id="green_bin_core" d="M44.6,115h38.8c2.1,0,3.9-1.7,4-3.8L90,62.9H38l2.6,48.3C40.7,113.3,42.4,115,44.6,115z"/>
+                <path  fill="#396" d="M35.1,57.5L35.1,57.5c19-4.6,38.8-4.6,57.7,0l0,0v5.4H35.1V57.5z"/>
+                <path fill="#063" d="M87.2,62.9h-4.7H38l0.2,8.7h4.2c21.6,0,38.7,18.1,37.5,39.6l0,0c-0.1,2.1-1.9,3.8-4,3.8h7.5c2.1,0,3.9-1.7,4-3.8l2.2-39.6h0.3l0.2-8.7h2.8H87.2z"/>
+                <path fill="#030" d="M70 102.1c-1.7 0-3-1.3-3-3v-20c0-1.7 1.3-3 3-3s3 1.3 3 3v20C73 100.7 71.7 102.1 70 102.1zM58 102.1c-1.7 0-3-1.3-3-3v-20c0-1.7 1.3-3 3-3s3 1.3 3 3v20C61 100.7 59.7 102.1 58 102.1z"/>
+                <path fill="#030" d="M83.4,118H44.6c-3.7,0-6.8-2.9-7-6.6L35,63.1c0-0.8,0.3-1.6,0.8-2.2c0.6-0.6,1.4-0.9,2.2-0.9H90c0.8,0,1.6,0.3,2.2,0.9c0.6,0.6,0.9,1.4,0.8,2.2l-2.6,48.3C90.2,115.1,87.1,118,83.4,118z M41.1,65.9l2.4,45.1c0,0.5,0.5,1,1,1h38.8c0.5,0,1-0.4,1-1l2.4-45.1H41.1z"/>
+                <path fill="#030" d="M83.4 126c-1.7 0-3-1.3-3-3v-8c0-1.7 1.3-3 3-3s3 1.3 3 3v8C86.4 124.7 85.1 126 83.4 126zM45.3 122c-1.7 0-3-1.3-3-3v-4c0-1.7 1.3-3 3-3s3 1.3 3 3v4C48.3 120.7 46.9 122 45.3 122zM92.9 65.9c-1.7 0-3-1.3-3-3v-3c-17-3.8-34.8-3.8-51.7 0v3c0 1.7-1.3 3-3 3s-3-1.3-3-3v-5.4c0-1.4.9-2.6 2.3-2.9 19.4-4.7 39.8-4.7 59.2 0 1.3.3 2.3 1.5 2.3 2.9v5.4C95.9 64.6 94.5 65.9 92.9 65.9z"/>
+            </svg>
+        </div>
+
+
+
+
+        <footer class="page-footer font-small blue pt-4">
+            <div class=class="footer-copyright text-center py-3">
+                © 2020 Copyright: Trash Aware, A Trash Sorting Game. 
+            </div>
+        </footer>
+    </div>
+
+    <!------------[Dialogs]----------------->
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="dialogTitle"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id="dialogBody">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              
+              <button id="dialogBtnClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="dialogBtnPlay" type="button" class="btn btn-secondary" data-dismiss="modal">Play</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var _jsGarbageItems = [];
+    var _jsRecycleItems = [];
+    var _jsOrganicItems = [];
+    var _displayArr = [];
+    var _jsScore = 0;
+    var _jsTurnCount = 0;
+
+    $(document).ready(function(){
+
+        console.log("Initial Definition of the Items");
+        _jsGarbageItems = ["CHIP BAGS", "RAZORS"];
+        _jsRecycleItems = ["CANS", "TIN FOIL"];
+        _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
+        showWelcomeDialog();
+        //console.log("Welcome Dialog and File Read complete!");
+        positionBins();
+        showRandomSixItems();
+        //setTimeout(function(){showRandomSixItems()}, 2400);
+        $("#garbage_bin, #recycle_bin, #green_bin").click(clickBin);
+
+
+    });//(End Of) Document.ready
+
+    function showWelcomeDialog()
+    {
+        //set the welcome text
+        $("#dialogBody").html("<h2>Trash Aware</h2><br/><h4>A Trash/Waste Sorting Game</h4>");
+
+        //hide the close button
+        $("#dialogBtnClose").hide();
+
+        //show modal
+        $('#myModal').modal('show');
+
+        //hide the dialog
+        //setTimeout(function(){$('#myModal').modal('hide');}, 2000);
+
+        //readDataFromUWaterlooSite();
+        readDataForGarbageItemsFromTxtFiles("garbageItems.txt");
+        readDataForOrganicItemsFromTxtFiles("organicItems.txt");
+        readDataForRecycleItemsFromTxtFiles("recycleItems.txt");
+        //console.log(_jsGarbageItems);
+        //console.log(_jsOrganicItems);
+        //console.log(_jsRecycleItems);
+
+        //setTimeout(function(){$('#myModal').modal('hide');}, 2000);
+
+    }//(End Of) Function showWelcomeDialog()
+
+    function showRandomSixItems()
+    {
+        
+        var garbageItemsClone = _jsGarbageItems.slice();
+        //console.log(garbageItemsClone.length);
+        var garbage1 = Math.floor(Math.random() * garbageItemsClone.length);
+        var garbageItem1 = garbageItemsClone[garbage1]; 
+        garbageItemsClone.splice(garbage1, 1);
+        //console.log(garbage1);
+        //console.log(garbageItemsClone.length);
+
+        
+        var garbage2 = Math.floor(Math.random() * garbageItemsClone.length);
+        var garbageItem2 = garbageItemsClone[garbage2];        
+        garbageItemsClone.splice(garbage2, 1); 
+        //console.log(garbage2);
+
+        var recycleItemsClone = _jsRecycleItems.slice();
+        var recycle1 = Math.floor(Math.random() * recycleItemsClone.length);
+        var recycleItem1 = recycleItemsClone[recycle1];
+        recycleItemsClone.splice(recycle1, 1);
+        //console.log(recycle1);
+
+        var recycle2 = Math.floor(Math.random() * recycleItemsClone.length);
+        var recycleItem2 = recycleItemsClone[recycle2];
+        recycleItemsClone.splice(recycle2, 1);
+        //console.log(recycle2);
+
+        var organicItemsClone = _jsOrganicItems.slice();
+        var organic1 = Math.floor(Math.random() * organicItemsClone.length);
+        var organicItem1 = organicItemsClone[organic1];
+        organicItemsClone.splice(organic1, 1);
+        //console.log(organic1);
+
+        var organic2 = Math.floor(Math.random() * organicItemsClone.length);
+        var organicItem2 = organicItemsClone[organic2];
+        organicItemsClone.splice(organic2, 1);
+        //console.log(organic2);
+
+        _displayArr = [{type: "g", item: garbageItem1}, {type: "g", item: garbageItem2}
+                        , {type: "r", item: recycleItem1}, {type: "r", item: recycleItem2}
+                        , {type: "o", item: organicItem1}, {type: "o", item: organicItem2}
+                        ];
+
+        //console.log(_displayArr)
+        displayNext();
+        
+        //console.log(_jsGarbageItems);
+        //console.log(garbage1)
+
+    }//(End Of) Function
+
+    function displayNext()
+    {
+        if(_displayArr.length<=0)
+        {
+            $("#displayItem").html("End Game!");
+            $("#displayItem").data("type", "");
+            //show modal
+            $('#myModal').modal('show');
+            _jsTurnCount = 0;
+            _jsScore = 0;
+            showRandomSixItems();
+            return;
+        }
+        var nextIndex = 0;
+        if(_displayArr.length > 1)
+        {
+            nextIndex = Math.floor(Math.random() * _displayArr.length); //generates a number from 0 to (1 less display array length)
+            
+            //console.log(nextIndex)
+        }
+        //console.log(nextIndex);
+        //console.log(_displayArr);
+        $("#displayItem").html(_displayArr[nextIndex].item);
+        $("#displayItem").data("type", _displayArr[nextIndex].type);
+        //console.log(_displayArr)
+        _displayArr.splice(nextIndex,1);
+    }
+
+    // function readDataFromUWaterlooSite()
+    // {
+
+    //     $.ajax({
+    //         url:'garbageSorting.txt',
+    //         type:'GET',
+    //         success: function(data)
+    //         {
+    //             //$('#content').html($(data).find('#firstHeading').html());
+    //             var listOfItems = $(data).find(".expandable");
+    //                     console.log(listOfItems);
+    //         }
+    //     });
+
+    // }//(End Of) function
+
+    function readDataForGarbageItemsFromTxtFiles(filename)
+    {
+        
+        $.ajax({
+            url:filename,
+            type:'GET',
+            dataType: "text",
+            async: false,
+            success: function(response)
+            {
+                _jsGarbageItems = $.csv.toArrays(response);
+                //console.log(data);
+            }
+        });
+        //console.log("filename: " + filename + "read complete");
+        //console.log(arrayName);
+        
+
+
+    }//(End Of) function
+
+    function readDataForRecycleItemsFromTxtFiles(filename)
+    {
+        
+        $.ajax({
+            url:filename,
+            type:'GET',
+            dataType: "text",
+            async: false,
+            success: function(response)
+            {
+                _jsRecycleItems = $.csv.toArrays(response);
+                //console.log(data);
+            }
+        });
+        //console.log("filename: " + filename + "read complete");
+        //console.log(arrayName);
+        
+
+
+    }//(End Of) function
+
+    function readDataForOrganicItemsFromTxtFiles(filename)
+    {
+        
+        $.ajax({
+            url:filename,
+            type:'GET',
+            dataType: "text",
+            async: false,
+            success: function(response)
+            {
+                _jsOrganicItems = $.csv.toArrays(response);
+                //console.log(data);
+            }
+        });
+        //console.log("filename: " + filename + "read complete");
+        //console.log(arrayName);
+        
+
+
+    }//(End Of) function
+
+
+    function positionBins()
+    {
+        var $w = $(window).width();
+        var $h = $(window).height();
+
+        $("#displayItem").css({top: "100px", left: ($w/2 -150 )+"px"});
+        $("#score").css({top: "20px", left: ($w/2 -150 )+"px"});
+        $("#curscore").html(_jsScore);
+        $("#turncount").html(_jsTurnCount);
+
+        var garbageBinWidth = $w/7;
+        var gargbageBinTop = ($h-250+(10* (garbageBinWidth * 0.021)));
+        $("#garbage_bin").css({top: gargbageBinTop + "px", left: ($w/2 - ( garbageBinWidth + $w/10))+"px", width: garbageBinWidth+"px"});
+        $("#garbage_bin_svg").attr("width", garbageBinWidth);
+        //$("#garbage_bin_svg").attr("height", $w/10);
+
+        var recycleBinWidth = $w/7;
+        var recycleBinTop = ($h-250+(10*(recycleBinWidth * 0.021)));
+        $("#recycle_bin").css({top: recycleBinTop + "px", left: ($w/2 - ( recycleBinWidth/2))+"px", width: recycleBinWidth+"px"});
+        $("#recycle_bin_svg").attr("width", recycleBinWidth);
+
+        //console.log($("#recycle_bin_corepath").offset().top);
+        //console.log($("#greenbin_core_path").offset().top);
+        //console.log($("#recycle_bin").offset().top);
+        //console.log($("#green_bin").offset().top);
+        var height_diff_const = 0.16;
+        var greenbindebux = "";
+        if($w>1100)
+        {
+            height_diff_const = 0.16 + ($w*0.00015); 
+            greenbindebux += "height_diff_const = [" + height_diff_const +"], ";
+        }
+        var height_diff_factor = ($("#recycle_bin_corepath").offset().top - $("#recycle_bin").offset().top) - ($("#greenbin_core_path").offset().top * height_diff_const);
+        greenbindebux += "height_diff_factor = [" + height_diff_factor +"], ";
+
+        var greenBinWidth = $w/5;
+        greenbindebux += "greenBinWidth = [" + greenBinWidth +"], ";
+
+        var greenBinTop = ($h-(320 - (greenBinWidth-($w * 0.1)))) + height_diff_factor;//($h-240+(10*(greenBinWidth * 0.001)));
+        greenbindebux += "greenBinTop = [" + greenBinTop +"], ";
+
+        if((greenBinTop+greenBinWidth-100)>$h)
+        {
+            console.log(greenBinTop+greenBinWidth)
+            console.log($h)
+            greenBinTop = $("#recycle_bin_corepath").offset().top -25 ; 
+            greenbindebux += " (IF TOTAL HEIGHT GREATER THAN WINDOW HEIGHT) greenBinTop = [" + greenBinTop +"], ";
+        }
+        if(greenBinTop < 100)
+        {
+            greenBinTop = $("#recycle_bin").offset().top -15 ;
+            greenbindebux += " (IF greenBinTop< 100 ) greenBinTop = [" + greenBinTop +"], ";
+        }
+        $("#debugx").append("<span>" + greenbindebux + "</span>")
+        $("#green_bin").css({top: greenBinTop + "px", left: ($w/2 - ( greenBinWidth-($w/4)))+"px", width: greenBinWidth+"px"});
+        $("#green_bin_svg").attr("width", greenBinWidth);
+
+
+
+
+        
+    }//(End Of) function
+
+
+    function clickBin(e)
+    {
+        //e.preventDefault();
+        console.log("bin clicked");
+        
+        var element = event.target.nodeName;
+        var $binDiv = null;
+        if(element=="DIV")
+        {
+            $binDiv = $(e.target);
+        }
+        else
+        {
+            $binDiv = $(e.target).closest("div");
+        }
+        console.log($binDiv.data())
+        _jsTurnCount++;
+        $("#turncount").html(_jsTurnCount);
+
+        if($("#displayItem").data("type") == $binDiv.data("bintype"))
+        {
+            _jsScore ++ ;
+
+        }
+        else
+        {
+            //do nothing
+        }
+        //update score board
+        $("#curscore").html(_jsScore);
+        //_displayArr.splice(0, 1) ;
+        displayNext();
+        
+        //console.log($(e.target))
+    }//(End Of) function
+    //read csv
+    //https://github.com/typeiii/jquery-csv#readme
+
+
+    /*
+    svg path:
+        M = moveto
+        L = lineto
+        H = horizontal lineto
+        V = vertical lineto
+        C = curveto
+        S = smooth curveto
+        Q = quadratic Bézier curve
+        T = smooth quadratic Bézier curveto
+        A = elliptical Arc
+        Z = closepath
+    */
+</script>

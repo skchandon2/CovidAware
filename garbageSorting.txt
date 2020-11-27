@@ -1,0 +1,207 @@
+<h2>Garbage sorting guide</h2>
+
+<p>Be aware that sorting waste at home is different than on-campus - UW waste programs accept different items. Please consult this sorting guide when you are unsure if an item can be placed into the garbage stream.</p>
+
+<p>Certain items may be suitable for donation* </p>
+
+<div class="expandable">
+	<h2>BICYCLES*</h2>
+
+	<div class="expandable-content">
+		<p>Bicycles are not recyclable but are suitable for donation. There are a few options for donating your bicycle; you can visit <a href="https://www.theworkingcentre.org/recycle-cycles/153">Recycle Cycles</a> run by the Working Centre, or visit the Region of Waterloo's <a href="https://www.regionofwaterloo.ca/en/living-here/residential-reduce-and-reuse-options.aspx">Residential Reduce and Reuse Options page</a> &gt; Drop-off facilities and programs for residents &gt; Drop-off programs operated by the Region &gt; Bicycles for more information on their bicycle reuse and refurbishment program. </p>
+
+		<p>Otherwise, bicycles are to be disposed into the Garbage stream.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>CANDY WRAPPERS</h2>
+
+	<div class="expandable-content">
+		<p>Candy wrappers are <b>not recyclable</b> and should be placed in the Garbage (black) receptacles. </p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>CERAMICS*</h2>
+
+	<div class="expandable-content">
+		<p>If they are still in good condition, they can be donated!</p>
+
+		<p>Broken ceramics should be carefully placed into the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>CHIP BAGS</h2>
+
+	<div class="expandable-content">
+		<p>Chip bags are <b>not recyclable</b> and should be placed in the Garbage (black) receptacles. </p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>CLING WRAP</h2>
+
+	<div class="expandable-content">
+		<p>Cling wrap is <strong>not recyclable</strong> and should be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>CONDIMENT PACKETS</h2>
+
+	<div class="expandable-content">
+		<p>Condiment packets (ketchup, soy sauce, etc.) are <b>not recyclable</b> and should be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>COTTON SWABS</h2>
+
+	<div class="expandable-content">
+		<p>Cotton swabs are <b>not recyclable</b> and should be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>DIAPERS</h2>
+
+	<div class="expandable-content">
+		<p>Diapers are <b>not recyclable</b> and should be placed into the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>FOUNTAIN DRINK CUPS</h2>
+
+	<div class="expandable-content">
+		<p>Fountain drink cups (wax lined) are <b>not recyclable</b> and must be placed in the Garbage (black) receptacles.</p>
+
+		<p><strong>Please note</strong>: fountain drink cups are different than coffee cups (coffee cups should be placed into the Papers (grey) receptacles).</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>FOILS (SOILED)</h2>
+
+	<div class="expandable-content">
+		<p>Foils that are soiled with food waste or containing mixed materials (e.g. foil with paper lining) are <b>not recyclable</b> and must be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>JEWELRY*</h2>
+
+	<div class="expandable-content">
+		<p>Jewelry is not recyclable but is suitable for donation. Visit the Region of Waterloo's <a href="https://www.regionofwaterloo.ca/en/living-here/residential-reduce-and-reuse-options.aspx">Residential Reduce and Reuse Options page</a> &gt; Directory of local programs, businesses and organizations &gt; Jewellery for a list of donation locations. </p>
+
+		<p>Otherwise, jewelry should be placed into the Garbage (black) receptacles. </p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>MENSTRUAL PRODUCTS</h2>
+
+	<div class="expandable-content">
+		<p>Disposable menstrual products such as tampons, pads, and liners, are <b>not recyclable</b> and should be placed in the Garbage (black) receptacles. </p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>PLASTIC BAGS</h2>
+
+	<div class="expandable-content">
+		<p><strong>On campus:</strong> Plastic bags (e.g. shopping bags, bread bags, Ziploc bags) cannot be recycled on campus and should be placed in the Garbage (black) receptacles.</p>
+
+		<p><b>At home: </b>Plastic bags can be recycled through the Region of Waterloo's curbside collection and can be placed in your Paper and Bags recycling bins. If you have multiple bags, please place them all into one bag and place them in the bin.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>PLASTIC STRAPPING</h2>
+
+	<div class="expandable-content">
+		<p>Plastic strapping from shipping boxes or other products is <b>not recyclable</b> and should be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>PLASTIC WRAPPING</h2>
+
+	<div class="expandable-content">
+		<p><strong>On campus:</strong> Soft plastic wrapping (e.g. water bottle or pop case wrapping) cannot be recycled on campus and should be placed in the Garbage (black) receptacles.</p>
+
+		<p><b>At home:</b> The Region of Waterloo collects soft plastic wrapping with other plastic bags in the Paper and Bags bin through curbside recycling. </p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>POUCH PACKS</h2>
+
+	<div class="expandable-content">
+		<p>Pouch packs (e.g. frozen fruit packaging) are <b>not recyclable</b> and should be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>RAZORS</h2>
+
+	<div class="expandable-content">
+		<p>Disposable razors and razor blades are <strong>not recyclable</strong> and should be sealed in a container then placed in the Garbage (black) receptacles. </p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>STIR STICKS (PLASTIC)</h2>
+
+	<div class="expandable-content">
+		<p>Plastic stir sticks are <b>not recyclable</b> and should be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2> STRAWS (PLASTIC)</h2>
+
+	<div class="expandable-content">
+		<p>Plastic straws are <b>not recyclable</b> and must be placed in the Garbage (black) receptacles.</p>
+
+		<hr /><p>When eating out, consider purchasing a stainless-steel straw - they are portable, easy to clean, and help keep plastic out of our oceans and our natural environment!</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>STYROFOAM</h2>
+
+	<div class="expandable-content">
+		<p>Styrofoam is <b>not recyclable</b> and must be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>TOYS*</h2>
+
+	<div class="expandable-content">
+		<p>Toys are not recyclable but are suitable for donation. Visit the Region of Waterloo's <a href="https://www.regionofwaterloo.ca/en/living-here/residential-reduce-and-reuse-options.aspx">Residential Reduce and Reuse Options page</a> &gt; Directory of local programs, businesses and organizations &gt; Toys for a list of donation locations. </p>
+
+		<p>Otherwise, toys should be placed into the Garbage (black) receptacles. </p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>WAX PAPER</h2>
+
+	<div class="expandable-content">
+		<p>Wax paper (e.g. Subway wraps, Tim Horton's bagel/sandwich liners) is <b>not recyclable</b> and must be placed in the Garbage (black) receptacles.</p>
+	</div>
+</div>
+
+<div class="expandable">
+	<h2>ZIPLOC BAGS</h2>
+
+	<div class="expandable-content">
+		<p><b>On campus: </b>Ziploc bags cannot be recycled on campus and should be placed in the Garbage (black) receptacles. </p>
+
+		<p><b>At home:</b> Clean Ziploc bags can be recycled through Region of Waterloo curbside collection and can be placed in your Paper and Bags recycling bin. If you have multiple bags, please place them in one bag and place that bag in your recycling bin. </p>
+	</div>
+</div>
