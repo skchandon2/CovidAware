@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Covid Aware</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Covid Awareness Building Game" />
+    <meta name="keywords" content="covid,awareness,pandemic,sorting,game" />
+    <meta property="og:site_name" content="Covid Aware" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home | Covid Aware | Game" />
+    <meta property="og:url" content="https:///" />
+    <meta property="og:description" content="Covid Awareness Building Game" />
+    <meta property="og:updated_time" content="2020-06-27T12:58:50-04:00" />
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/jquery.csv.min.js"></script>
+    <style>
+        .modal-dialog {
+            background-color: rgba(0,0,0,.59) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="background-image: linear-gradient(#8debfc,#bfeff8, #FEFEFE,#9ec9dd, rgb(77, 207, 17));">
+        <div class="row">
+            <div class="col-sm-12" style="height: 93vh">
+                <!--ROW 1-->
+                <div class="row" style="height: 20vh; margin-top: 15px">
+                    <div class="col-sm-12" style="text-align: center">
+                        <h1><span id="lblScore" class="badge badge-primary">Score: </span></h1>
+                    </div>
+                </div>
+
+                <!--ROW 2-->
+                <div class="row" style="height: 30vh">
+                    <div class="col-sm-12" id="cardQuestionBox" style="text-align: center">
+                        <div class="card" style="width: 18rem; position: relative; display: inline-block">                            
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+
+                <!--ROW 3-->
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-2" id="asset1" data-assettype="1"><img src="images/covid-prevent.svg" /></div>
+                    <div class="col-2" id="asset2" data-assettype="2"><img src="images/covid-protect.svg" /></div>
+                    <div class="col-2" id="asset3" data-assettype="3"><img src="images/covid-restrict.svg" /></div>
+                    <div class="col-2" id="asset4" data-assettype="4"><img src="images/covid-control.svg" /></div>
+                    <div class="col-2" id="asset5" data-assettype="5"><img src="images/covid-lockdown.svg" /></div>
+                    <div class="col-2"></div>
+                    
+                </div>
+                
+
+            </div>
+        </div>
+
+        <footer class="page-footer font-small blue pt-4">
+            <div class=class="footer-copyright text-center py-3">
+                © 2020 Copyright: Covid Aware, Covid Awareness Building Game. 
+            </div>
+        </footer>
+
+            <!------------[Dialogs]----------------->
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="dialogTitle"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p id="dialogBody">Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              
+              <button id="dialogBtnClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="dialogBtnPlay" type="button" class="btn btn-secondary" data-dismiss="modal">Play</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var _jsGarbageItems = [];
+    var _jsRecycleItems = [];
+    var _jsOrganicItems = [];
+    var _displayQuestionsArr = [];
+    var _jsScore = 0;
+    var _jsTurnCount = 0;
+
+    $(document).ready(function(){
+
+        console.log("Initial Definition of the Items");
+        _jsGarbageItems = ["CHIP BAGS", "RAZORS"];
+        _jsRecycleItems = ["CANS", "TIN FOIL"];
+        _jsOrganicItems = ["BONES/SHELLS", "FOOD WASTE"];
+        readData();
+        showWelcomeDialog();
+        //console.log("Welcome Dialog and File Read complete!");
+        
+        showRandomSixItems();
+        //setTimeout(function(){showRandomSixItems()}, 2400);
+        $("#prevent_zone, #recycle_bin, #green_bin").click(clickBin);
+
+
+    });//(End Of) Document.ready
+
+    function readData()
+    {
+                
+        readDataFromTxtFiles("garbageItems.txt");
+        //readDataForOrganicItemsFromTxtFiles("organicItems.txt");
+        //readDataForRecycleItemsFromTxtFiles("recycleItems.txt");
+    }
+
+    function clickBin(e)
+    {
+        //e.preventDefault();
+        console.log("bin clicked");
+        
+        var element = event.target.nodeName;
+        var $binDiv = null;
+        if(element=="DIV")
+        {
+            $binDiv = $(e.target);
+        }
+        else
+        {
+            $binDiv = $(e.target).closest("div");
+        }
+        console.log($binDiv.data())
+        _jsTurnCount++;
+        $("#turncount").html(_jsTurnCount);
+
+        if($("#displayItem").data("type") == $binDiv.data("assettype"))
+        {
+            _jsScore ++ ;
+
+        }
+        else
+        {
+            //do nothing
+        }
+        //update score board
+        $("#curscore").html(_jsScore);
+        //_displayArr.splice(0, 1) ;
+        displayNext();
+        
+        //console.log($(e.target))
+    }//(End Of) function
+
+    function showWelcomeDialog()
+    {
+        //set the welcome text
+        $("#dialogBody").html("<h2>Covid Aware</h2><br/><h4>A Covid Awareness Building Game</h4>");
+
+        //hide the close button
+        $("#dialogBtnClose").hide();
+
+        //show modal
+        $('#myModal').modal('show');
+
+        //hide the dialog
+        //setTimeout(function(){$('#myModal').modal('hide');}, 2000);
+
+
+
+        //console.log(_jsGarbageItems);
+        //console.log(_jsOrganicItems);
+        //console.log(_jsRecycleItems);
+
+        //setTimeout(function(){$('#myModal').modal('hide');}, 2000);
+
+    }//(End Of) Function showWelcomeDialog()
+
+    function showRandomItems(paramItemCount)
+    {
+        
+        
+
+        _displayQuestionsArr = [{type: "g", item: garbageItem1}, {type: "g", item: garbageItem2}
+                        , {type: "r", item: recycleItem1}, {type: "r", item: recycleItem2}
+                        , {type: "o", item: organicItem1}, {type: "o", item: organicItem2}
+                        ];
+
+        //console.log(_displayArr)
+        displayNext();
+        
+        //console.log(_jsGarbageItems);
+        //console.log(garbage1)
+
+    }//(End Of) Function
+
+    function displayNext()
+    {
+        if(_displayQuestionsArr.length<=0)
+        {
+            $("#displayItem").html("End Game!");
+            $("#displayItem").data("type", "");
+            //show modal
+            $('#myModal').modal('show');
+            _jsTurnCount = 0;
+            _jsScore = 0;
+            showRandomSixItems();
+            return;
+        }
+        var nextIndex = 0;
+        if(_displayQuestionsArr.length > 1)
+        {
+            nextIndex = Math.floor(Math.random() * _displayQuestionsArr.length); //generates a number from 0 to (1 less display array length)
+            
+            //console.log(nextIndex)
+        }
+        //console.log(nextIndex);
+        //console.log(_displayArr);
+        $("#displayItem").html(_displayQuestionsArr[nextIndex].item);
+        $("#displayItem").data("type", _displayQuestionsArr[nextIndex].type);
+        //console.log(_displayArr)
+        _displayQuestionsArr.splice(nextIndex,1);
+    }
+
+    function readDataFromTxtFiles(filename)
+    {
+        
+        $.ajax({
+            url:filename,
+            type:'GET',
+            dataType: "text",
+            async: false,
+            success: function(response)
+            {
+                _jsGarbageItems = $.csv.toArrays(response);
+                //console.log(data);
+            }
+        });
+        //console.log("filename: " + filename + "read complete");
+        //console.log(arrayName);
+        
+
+
+    }//(End Of) function
+
+</script>

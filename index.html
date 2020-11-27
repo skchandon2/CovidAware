@@ -72,7 +72,7 @@
         <div id="debugx" style="display: none"></div>
 
         <!--Categories-->
-        <div id="garbage_bin" data-bintype="g" style="cursor:pointer; position: absolute; left: 20px; top: 0px">            
+        <div id="prevent_zone" data-bintype="g" style="cursor:pointer; position: absolute; left: 20px; top: 0px">            
             <img src="images/covid-prevent.svg">
         </div>
         
@@ -145,7 +145,7 @@
         positionBins();
         showRandomSixItems();
         //setTimeout(function(){showRandomSixItems()}, 2400);
-        $("#garbage_bin, #recycle_bin, #green_bin").click(clickBin);
+        $("#prevent_zone, #recycle_bin, #green_bin").click(clickBin);
 
 
     });//(End Of) Document.ready
@@ -346,16 +346,22 @@
         $("#curscore").html(_jsScore);
         $("#turncount").html(_jsTurnCount);
 
+        //---------------------------------
+        var preventZoneWidth = $w/10;
+        var preventZoneTop = ($h-350+(10* (preventZoneWidth * 0.021)));
+        var preventZoneLeft = ($w/4 - ( preventZoneWidth + $w/10));
+        $("#prevent_zone").css({top: preventZoneTop + "px", left: preventZoneLeft+"px", width: preventZoneWidth+"px"});
+
+        //-----------------------------
         var garbageBinWidth = $w/7;
-        var gargbageBinTop = ($h-250+(10* (garbageBinWidth * 0.021)));
-        $("#garbage_bin").css({top: gargbageBinTop + "px", left: ($w/2 - ( garbageBinWidth + $w/10))+"px", width: garbageBinWidth+"px"});
-        $("#garbage_bin_svg").attr("width", garbageBinWidth);
-        //$("#garbage_bin_svg").attr("height", $w/10);
+        var gargbageBinTop = ($h-350+(10* (garbageBinWidth * 0.021)));
+        //$("#prevent_zone").css({top: gargbageBinTop + "px", left: ($w/2 - ( garbageBinWidth + $w/10))+"px", width: garbageBinWidth+"px"});
+
 
         var recycleBinWidth = $w/7;
         var recycleBinTop = ($h-250+(10*(recycleBinWidth * 0.021)));
         $("#recycle_bin").css({top: recycleBinTop + "px", left: ($w/2 - ( recycleBinWidth/2))+"px", width: recycleBinWidth+"px"});
-        $("#recycle_bin_svg").attr("width", recycleBinWidth);
+        //$("#recycle_bin_svg").attr("width", recycleBinWidth);
 
         //console.log($("#recycle_bin_corepath").offset().top);
         //console.log($("#greenbin_core_path").offset().top);
