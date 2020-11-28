@@ -184,7 +184,8 @@
         _jsTurnCount++;
         $("#turncount").html(_jsTurnCount);
 
-        if($("#displayItem").data("type") == $binDiv.data("assettype"))
+        var typeArr =  $("#displayItem").data("type");
+        if( $.inArray($binDiv.data("assettype"), typeArr)  )
         {
             _jsScore ++ ;
 
@@ -233,8 +234,13 @@
         {
             //console.log("i=" + i);
             var randomIndex = Math.floor(Math.random() * fileItemsClone.length);
-            var typex = $.trim(fileItemsClone[randomIndex][0]);
-            var valx = $.trim(fileItemsClone[randomIndex][1]);
+            var valx = $.trim(fileItemsClone[randomIndex][0]);
+            var typex = [];
+            for(var m=1; m<fileItemsClone.length; m++)
+            {
+                typex.push($.trim(fileItemsClone[randomIndex][m]));            
+            }
+            
             var newGameQuestion = {type: typex, item: valx};
             _displayQuestionsArr.push(newGameQuestion);
             fileItemsClone.splice(randomIndex, 1);
