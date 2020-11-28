@@ -56,7 +56,7 @@
                         
                         <div class="card" id="" style="width: 18rem; position: relative; display: inline-block">
                             <div class="card-body">
-                                <span id="oneQuestionResult"></span>
+                                <h2><span id="oneQuestionResult"></span></h2>
                             </div>
                         </div>
                         <br/>
@@ -193,7 +193,8 @@
         $("#turncount").html(_jsTurnCount);
 
         var typeArr =  $("#displayItem").data("type");
-        var curAssetType = $binDiv.data("assettype");
+        var curAssetType = ""+$binDiv.data("assettype");
+        console.log( $.inArray(curAssetType, typeArr));
         if( $.inArray(curAssetType, typeArr)  !=-1)
         {
             $("#oneQuestionResult").removeClass().addClass("badge badge-success").html("Correct");
@@ -204,6 +205,9 @@
         {
             $("#oneQuestionResult").removeClass().addClass("badge badge-danger").html("Wrong!");
         }
+        $("#oneQuestionResult").show();
+        setTimeout(function(){$("#oneQuestionResult").fadeOut("slow");}, 500);
+        
         //update score board
         $("#curscore").html(_jsScore);
         //_displayArr.splice(0, 1) ;
