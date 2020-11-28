@@ -1,12 +1,18 @@
-1, test
-2, taste
-3, hello
-4, scott
-5, tiger
-1, ford gt
-3, gt40
-3, ferrari
-4, saleen
-5, safari
-4, firefox
-5, edge
+1, Indoor limits for parties 10?
+1, Outdoor limits for parties 25?
+2, Indoor limits for parties 10?
+2, Outdoor limits for parties 25?
+2, At a resturant 6 people could be seated together?
+3, At a resturant 4 people could be seated together?
+4, Indoor limits for parties 5?
+4, Outdoor limits for parties 25?
+4, Maximum number of patrons permitted to be seated indoors at a resturant is 10?
+4, At a resturant 4 people could be seated together?
+4, Establishments must be closed from 10 p.m. to 5 a.m.?
+4, performing arts facilites closed to spectators?
+5, No indoor organized public events and social gatherings, except with members of the same household?
+5, Indoor and outdoor service prohibited at resturants?
+5, Hair Salons closed?
+5, Casinos Closed?
+5, Horse Racing, Training Only and No Races?
+5, Motorsports Closed?
