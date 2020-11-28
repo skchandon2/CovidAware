@@ -30,6 +30,14 @@
             box-shadow: 10px 7px 21px 3px rgb(95, 95, 95); 
         }
 
+        .wgBtnAssetHighlight img
+        {
+            border: 3px solid rgb(56, 255, 7);
+            -webkit-box-shadow: 10px 7px 21px 0px rgb(128, 128, 128);
+            -moz-box-shadow: 10px 7px 21px 0px rgb(128, 128, 128);
+            box-shadow: 10px 7px 21px 0px rgb(128, 128, 128); 
+        }
+
         .wgQuestionBox
         {
             padding: 7px;
@@ -176,6 +184,8 @@
     function clickBin(e)
     {
         //e.preventDefault();
+        //remove all handlers so that users cannot click on it again while we are showing it
+        $(".wgBtnAsset").off("click");
         console.log("Asset clicked");
         
         var element = event.target.nodeName;
@@ -205,18 +215,44 @@
         {
             $("#oneQuestionResult").removeClass().addClass("badge badge-danger").html("Wrong!");
         }
-        $("#oneQuestionResult").show();
-        setTimeout(function(){$("#oneQuestionResult").fadeOut("slow");}, 500);
         
+        //highlight the correct boxes
+        HighlightBoxes(typeArr);
+        $("#oneQuestionResult").show();
+
         //update score board
         $("#curscore").html(_jsScore);
+
+        //hide it after 500ms
+        setTimeout(function(){
+            $("#oneQuestionResult").fadeOut("slow"); 
+            displayNext();
+            //add all the click handlers back
+            $(".wgBtnAsset").click(clickBin);
+            UnHighlightAllBoxes();
+            }, 500);
+        
         //_displayArr.splice(0, 1) ;
-        displayNext();
+        
         
         //console.log($(e.target))
     }//(End Of) function
 
- 
+    function HighlightBoxes(paramBoxId)
+    {
+        $.each(paramBoxId, function(i, datax){
+
+            $("#asset" + datax).removeClass("wgBtnAsset").addClass("wgBtnAssetHighlight");
+            
+        });
+    }
+
+    function UnHighlightAllBoxes()
+    {
+
+        $(".wgBtnAssetHighlight").removeClass("wgBtnAssetHighlight").addClass("wgBtnAsset");
+            
+    }
 
     function readDataFromTxtFiles(filename)
     {
