@@ -42,7 +42,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Card title</h5>
                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                              <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
                             </div>
                           </div>
                     </div>
@@ -122,7 +122,7 @@
     function readData()
     {
                 
-        readDataFromTxtFiles("garbageItems.txt");
+        readDataFromTxtFiles("allItems.txt");
         //readDataForOrganicItemsFromTxtFiles("organicItems.txt");
         //readDataForRecycleItemsFromTxtFiles("recycleItems.txt");
     }
@@ -240,11 +240,11 @@
             url:filename,
             type:'GET',
             dataType: "text",
-            async: false,
+            async: true,
             success: function(response)
             {
                 _jsGarbageItems = $.csv.toArrays(response);
-                //console.log(data);
+                console.log(_jsGarbageItems);
             }
         });
         //console.log("filename: " + filename + "read complete");
