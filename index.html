@@ -53,7 +53,15 @@
                 <!--ROW 2-->
                 <div class="row" style="height: 30vh">
                     <div class="col-sm-12" id="cardQuestionBox" style="text-align: center">
-                        <div class="card" style="width: 18rem; position: relative; display: inline-block">                            
+                        
+                        <div class="card" id="" style="width: 18rem; position: relative; display: inline-block">
+                            <div class="card-body">
+                                <span id="oneQuestionResult"></span>
+                            </div>
+                        </div>
+                        <br/>
+
+                        <div class="card" style="width: 25rem; position: relative; display: inline-block">                            
                             <div class="card-body" id="outerQuestionBox">
                               <h5 class="card-title">Question: </h5>
                               <p class="card-text wgQuestionBox" id="displayItem">Questions Will Appear Here.</p>
@@ -185,14 +193,16 @@
         $("#turncount").html(_jsTurnCount);
 
         var typeArr =  $("#displayItem").data("type");
-        if( $.inArray($binDiv.data("assettype"), typeArr)  )
+        var curAssetType = $binDiv.data("assettype");
+        if( $.inArray(curAssetType, typeArr)  !=-1)
         {
+            $("#oneQuestionResult").removeClass().addClass("badge badge-success").html("Correct");
             _jsScore ++ ;
 
         }
         else
         {
-            //do nothing
+            $("#oneQuestionResult").removeClass().addClass("badge badge-danger").html("Wrong!");
         }
         //update score board
         $("#curscore").html(_jsScore);
