@@ -5,10 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import Score from './components/score';
+import Question from './components/question';
+import Selection from './components/selection';
 
 ReactDOM.render(
   <React.StrictMode>
     <Score />
+    <Question />
+    <Selection />
   </React.StrictMode>,
   document.getElementById('root')
 );
