@@ -54,7 +54,7 @@
                 <!--ROW 1-->
                 <div class="row" style="height: 20vh; margin-top: 15px">
                     <div class="col-sm-12" style="text-align: center">
-                        <h1><span id="lblScore" class="badge badge-primary">Score: <span id="curscore">0</span> out of <span id="totalqs"></span></span></h1>
+                        <h1><span id="lblScore" class="badge badge-primary">Score: <span id="curscore">0</span> <span id="totalqs"></span></span></h1>
                     </div>
                 </div>
 
@@ -281,7 +281,7 @@
     function getRandomItems(paramItemCount)
     {
         var fileItemsClone = _jsFileItems.slice();
-        $("#totalqs").html(paramItemCount)
+        
         for(var i=0; i<paramItemCount; i++)
         {
             //console.log("i=" + i);
@@ -308,8 +308,10 @@
 
     function displayNext()
     {
+        //game ends if the length of questions array is 0 or less
         if(_displayQuestionsArr.length<=0)
         {
+            $("#totalqs").html(" out of " + _jsShowQuestionsCount);
             $("#displayItem").html("End Game!");
             $("#displayItem").data("type", "");
             //show modal
@@ -331,6 +333,7 @@
         }
         //console.log(nextIndex);
         //console.log(_displayArr);
+        //$("#outerQuestionBox .card-title").html()
         $("#displayItem").html(_displayQuestionsArr[nextIndex].item);
         $("#displayItem").data("type", _displayQuestionsArr[nextIndex].type);
         //console.log(_displayArr)
