@@ -154,6 +154,7 @@
 
     function startGame()
     {                
+        $(".wgBtnAsset").fadeIn("fast");
         $("#outerQuestionBox").fadeIn("fast");
         $("#playAgainBox").hide();
         _jsTurnCount = 0;
@@ -317,7 +318,7 @@
             $("#displayItem").data("type", "");
             //show modal
             //$('#myModal').modal('show');
-
+            $(".wgBtnAsset").fadeOut("fast");
             $("#outerQuestionBox").hide();
             $("#playAgainBox").fadeIn("fast");
             
