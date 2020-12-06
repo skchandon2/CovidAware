@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class Question extends Component {
-    state = {  }
     render() { 
         return ( 
             <div className="row" style = { { height: "30vh" } }>
@@ -18,7 +17,7 @@ class Question extends Component {
                     <div className="card" style={ { width: "25rem", position: "relative", display: "inline-block" }}>                            
                         <div className="card-body" id="outerQuestionBox">
                             <h5 className="card-title">Question: </h5>
-                            <p className="card-text wgQuestionBox" id="displayItem">Questions Will Appear Here.</p>
+        <p className="card-text wgQuestionBox" id="displayItem">{this.props.question.text}</p>
                         </div>
                         <div className="card-body" id="playAgainBox" style= { { display: "none" }}>
                             <h5 className="card-title">Game Over</h5>
@@ -26,13 +25,15 @@ class Question extends Component {
                             <a href="#" className="btn btn-primary" id="btnPlayAgain">Play Again?</a>
                             </div>
                         </div>
+                        {/* <button 
+                            onClick={this.getNextQuestion} 
+                            className="btn btn-danger btn-sm m-2"
+                        >
+                            Next
+                        </button> */}
                 </div>
             </div>
          );
-    }
-
-    getNextQuestion() {
-        
     }
 }
  
