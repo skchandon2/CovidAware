@@ -1,10 +1,9 @@
 Indoor limits for parties 10?, 1, 2, 3
 Outdoor limits for parties 25?, 1, 2, 3, 4
 At a restaurant 6 people could be seated together?, 2
-At a restaurant 4 people could be seated together?, 3
+At a restaurant 4 people could be seated together?, 3,4 
 Indoor limits for parties 5?, 4
 Maximum number of patrons permitted to be seated indoors at a restaurant is 10?, 4
-At a restaurant 4 people could be seated together?, 4
 Restaurants and similar establishments must be closed from 10 p.m. to 5 a.m.?, 3, 4
 performing arts facilites closed to spectators?, 4
 No indoor organized public events and social gatherings&#44; except with members of the same household?, 5
