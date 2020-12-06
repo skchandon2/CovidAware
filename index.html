@@ -227,9 +227,9 @@
 
         //hide it after 500ms
         setTimeout(function(){
-            $("#oneQuestionResult").fadeOut("slow"); 
-            displayNext();
+            $("#oneQuestionResult").fadeOut("slow");             
             UnHighlightAllBoxes();
+            displayNext();
             
             //add all the click handlers back
             $(".wgBtnAsset").click(clickBin);
