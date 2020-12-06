@@ -45,6 +45,12 @@
             -moz-box-shadow: 10px 7px 21px 3px rgba(230,230,230,1);
             box-shadow: 10px 7px 21px 3px rgba(230,230,230,1); 
         }
+
+        @media screen and (max-width: 600px) {
+            card {
+                width: 20rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -69,7 +75,7 @@
                         </div>
                         <br/>
 
-                        <div class="card" style="width: 21rem; position: relative; display: inline-block">                            
+                        <div class="card" style="width: 25rem; position: relative; display: inline-block">                            
                             <div class="card-body" id="outerQuestionBox">
                               <h5 class="card-title">Question: </h5>
                               <p class="card-text wgQuestionBox" id="displayItem">Questions Will Appear Here.</p>
