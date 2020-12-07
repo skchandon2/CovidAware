@@ -6,12 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css'
 import Game from './components/game';
-import Init from './components/init';
 import Footer from './components/footer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Init />
     <Game />
     <Footer />
   </React.StrictMode>,
