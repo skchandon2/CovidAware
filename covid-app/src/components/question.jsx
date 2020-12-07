@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class Question extends Component {
+    getQuestionAnswer() {
+        if (this.props.hasAnsweredCorrectly == 1) {
+            return <h2><span className="badge badge-success">Correct!</span></h2>
+        } else if (this.props.hasAnsweredCorrectly == 0) {
+            return <h2><span className="badge badge-danger">Wrong!</span></h2>
+        } else {
+            <h2><span></span></h2>
+        } 
+    }
+
     render() { 
         return ( 
             <div className="row" style = { { height: "30vh" } }>
@@ -9,7 +19,7 @@ class Question extends Component {
                     
                     <div className="card" id="" style={ { width: "18rem", position: "relative", display: "inline-block" } }>
                         <div className="card-body">
-                            <h2><span id="oneQuestionResult"></span></h2>
+                            {this.getQuestionAnswer()}
                         </div>
                     </div>
                     <br/>
