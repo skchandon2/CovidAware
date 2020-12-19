@@ -113,5 +113,5 @@ const questions = [
             const j = Math.floor(Math.random() * (i + 1));
             [shuffleQuestions[i], shuffleQuestions[j]] = [shuffleQuestions[j], shuffleQuestions[i]];
         }
-    return shuffleQuestions;
+    return shuffleQuestions.slice(0, 5);
   }
