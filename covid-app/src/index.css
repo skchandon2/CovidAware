@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wgBtnAsset img
+{
+    -webkit-box-shadow: 10px 7px 21px 3px rgb(95, 95, 95);
+    -moz-box-shadow: 10px 7px 21px 3px rgb(95, 95, 95);
+    box-shadow: 10px 7px 21px 3px rgb(95, 95, 95); 
+}
+
+.wgBtnAssetHighlight img
+{
+    border: 6px solid rgb(62, 195, 0);
+    -webkit-box-shadow: 10px 7px 21px 0px rgb(128, 128, 128);
+    -moz-box-shadow: 10px 7px 21px 0px rgb(128, 128, 128);
+    box-shadow: 10px 7px 21px 0px rgb(128, 128, 128); 
+}
+
+.wgQuestionBox
+{
+    padding: 7px;
+    -webkit-box-shadow: 10px 7px 21px 3px rgba(230,230,230,1);
+    -moz-box-shadow: 10px 7px 21px 3px rgba(230,230,230,1);
+    box-shadow: 10px 7px 21px 3px rgba(230,230,230,1); 
+}
+
+/*Bootstrap overrid*/
+.card
+{
+    width: 25rem; position: relative; display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 20rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+}

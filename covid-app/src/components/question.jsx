@@ -27,7 +27,7 @@ class Question extends Component {
                     <div className="card" style={ { width: "25rem", position: "relative", display: "inline-block" }}>                            
                         <div className="card-body" id="outerQuestionBox">
                             <h5 className="card-title">Question: </h5>
-        <p className="card-text wgQuestionBox" id="displayItem">{this.props.question.text}</p>
+        <p className="card-text wgQuestionBox" id="displayItem" dangerouslySetInnerHTML={{__html: this.props.question.text}}/>
                         </div>
                         <div className="card-body" id="playAgainBox" style= { { display: "none" }}>
                             <h5 className="card-title">Game Over</h5>
