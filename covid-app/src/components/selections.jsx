@@ -27,6 +27,8 @@ class Selections extends Component {
                         key={selection._id} 
                         onSelection={this.handleSelection}
                         selection = {selection}
+                        currentAnswers={this.props.currentAnswers}
+                        currentId = {selection._id} 
                     />)}
                     <div className="col-2"></div> 
                 </div>

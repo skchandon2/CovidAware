@@ -15,6 +15,7 @@ class Game extends Component {
             text: "Questions Will Appear Here.",
             answers: []
         },
+        previousCorrectAnswers: [],
         hasAnsweredCorrectly: -1
     };
 
@@ -43,7 +44,9 @@ class Game extends Component {
             this.incrementScore();
         } else {
             this.setState({ hasAnsweredCorrectly: 0 });
+            
         }
+        this.setState({previousCorrectAnswers: [...this.state.currentQuestion.answers]});
         this.getNextQuestion();
     };
 
@@ -59,7 +62,7 @@ class Game extends Component {
             currentQuestion:  {
                 _id: "0",
                 text: "Questions Will Appear Here.",
-                answers: []
+                answers: [1]
             },
             hasAnsweredCorrectly: -1
         })
@@ -77,7 +80,7 @@ class Game extends Component {
                     question = {this.state.currentQuestion} 
                     hasAnsweredCorrectly = {this.state.hasAnsweredCorrectly} 
                 />
-                <Selections onSelection={this.handleSelection} />
+                <Selections onSelection={this.handleSelection} currentAnswers={this.state.previousCorrectAnswers}/>
             </div>
          );
     }
