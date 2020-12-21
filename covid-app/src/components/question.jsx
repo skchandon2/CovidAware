@@ -10,12 +10,12 @@ class Question extends Component {
         } else if (this.props.hasAnsweredCorrectly == 0) {
             return <h2><span className="badge badge-danger">Wrong!</span></h2>
         } else {
-            <h2><span></span></h2>
+            <h2><span>&nbsp;</span></h2>
         }
         }
         else
         {
-            return <h2></h2>
+            return <h2>&nbsp;</h2>
         } 
     }
 

@@ -52,7 +52,7 @@ class Game extends Component {
         }
         this.setState({previousCorrectAnswers: [...this.state.currentQuestion.answers], isHighlighted: true, showAnswerLabel: true});
         
-        this.getNextQuestion();
+        
     };
     
 
@@ -63,7 +63,8 @@ class Game extends Component {
             this.timeout = setTimeout(() => {
                 console.log("~~~~~~")
                 this.setState({ previousCorrectAnswers: [], isHighlighted: false, showAnswerLabel: false});
-            }, 500);
+                this.getNextQuestion();
+            }, 1000);
         }
         else
         {
