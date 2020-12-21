@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import Init from './init';
 import Score from './score';
 import Question from './question';
@@ -16,7 +16,8 @@ class Game extends Component {
             answers: []
         },
         previousCorrectAnswers: [],
-        hasAnsweredCorrectly: -1
+        hasAnsweredCorrectly: -1,
+        isHighlighted: false
     };
 
     setCurrentQuestion = (question) => this.setState({ currentQuestion: question });
@@ -37,6 +38,7 @@ class Game extends Component {
     }
 
     handleSelection = selection => {
+        
         const answers = this.state.currentQuestion.answers;
         const isCorrect = answers.some(a => a._id.includes(selection._id));
         if (isCorrect) {
@@ -46,8 +48,26 @@ class Game extends Component {
             this.setState({ hasAnsweredCorrectly: 0 });
             
         }
-        this.setState({previousCorrectAnswers: [...this.state.currentQuestion.answers]});
+        this.setState({previousCorrectAnswers: [...this.state.currentQuestion.answers], isHighlighted: true});
+        
         this.getNextQuestion();
+    };
+    
+
+    componentDidUpdate()
+    {
+        if(this.state.isHighlighted)
+        {
+            this.timeout = setTimeout(() => {
+                console.log("~~~~~~")
+                this.setState({ previousCorrectAnswers: [], isHighlighted: false});
+            }, 500);
+        }
+        else
+        {
+            clearTimeout(this.timeout);
+        }
+        
     };
 
     incrementScore = () => {

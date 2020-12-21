@@ -34,7 +34,7 @@ class Selection extends Component {
     }
 
     componentWillUnmount() {
-        clearTimeout(this.timeout);
+        //clearTimeout(this.timeout);
     };
 
     render() {
