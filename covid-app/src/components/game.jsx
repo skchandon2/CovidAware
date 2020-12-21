@@ -17,7 +17,8 @@ class Game extends Component {
         },
         previousCorrectAnswers: [],
         hasAnsweredCorrectly: -1,
-        isHighlighted: false
+        isHighlighted: false,
+        previousOverallScore: -1
     };
 
     setCurrentQuestion = (question) => this.setState({ currentQuestion: question });
@@ -84,7 +85,8 @@ class Game extends Component {
                 text: "Questions Will Appear Here.",
                 answers: [1]
             },
-            hasAnsweredCorrectly: -1
+            hasAnsweredCorrectly: -1,
+            previousOverallScore: this.state.score
         })
     }
 
@@ -94,6 +96,7 @@ class Game extends Component {
                 <Init 
                     showInit = {this.state.showInit} 
                     onCloseInit={this.handleCloseInit}
+                    previousOverallScore = {this.state.previousOverallScore}
                 />
                 <Score score = {this.state.score} />
                 <Question 

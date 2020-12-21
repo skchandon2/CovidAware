@@ -4,6 +4,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class Init extends Component {
     render() { 
+        let prevScore = '';
+        if(this.props.previousOverallScore != -1)
+        {
+            prevScore = "Score: " + this.props.previousOverallScore;
+        }
         return (
             <Modal show={this.props.showInit} onHide={this.props.onCloseInit} style={{display: "block"}}>
                 <Modal.Header closeButton>
@@ -12,6 +17,7 @@ class Init extends Component {
 
                 <Modal.Body>
                     <p>A COVID awareness building game!</p>
+                    <h2>{prevScore}</h2>
                 </Modal.Body>
 
                 <Modal.Footer>
