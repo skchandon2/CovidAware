@@ -18,7 +18,8 @@ class Game extends Component {
         previousCorrectAnswers: [],
         hasAnsweredCorrectly: -1,
         isHighlighted: false,
-        previousOverallScore: -1
+        previousOverallScore: -1,
+        showAnswerLabel: false
     };
 
     setCurrentQuestion = (question) => this.setState({ currentQuestion: question });
@@ -49,7 +50,7 @@ class Game extends Component {
             this.setState({ hasAnsweredCorrectly: 0 });
             
         }
-        this.setState({previousCorrectAnswers: [...this.state.currentQuestion.answers], isHighlighted: true});
+        this.setState({previousCorrectAnswers: [...this.state.currentQuestion.answers], isHighlighted: true, showAnswerLabel: true});
         
         this.getNextQuestion();
     };
@@ -61,7 +62,7 @@ class Game extends Component {
         {
             this.timeout = setTimeout(() => {
                 console.log("~~~~~~")
-                this.setState({ previousCorrectAnswers: [], isHighlighted: false});
+                this.setState({ previousCorrectAnswers: [], isHighlighted: false, showAnswerLabel: false});
             }, 500);
         }
         else
@@ -85,7 +86,10 @@ class Game extends Component {
                 text: "Questions Will Appear Here.",
                 answers: [1]
             },
+            previousCorrectAnswers: [],
             hasAnsweredCorrectly: -1,
+            isHighlighted: false,
+            showAnswerLabel: false,
             previousOverallScore: this.state.score
         })
     }
@@ -101,7 +105,8 @@ class Game extends Component {
                 <Score score = {this.state.score} />
                 <Question 
                     question = {this.state.currentQuestion} 
-                    hasAnsweredCorrectly = {this.state.hasAnsweredCorrectly} 
+                    hasAnsweredCorrectly = {this.state.hasAnsweredCorrectly}
+                    highlightAnswerLabel = {this.state.showAnswerLabel} 
                 />
                 <Selections onSelection={this.handleSelection} previousCorrectAnswers={this.state.previousCorrectAnswers}/>
             </div>

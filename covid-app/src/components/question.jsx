@@ -3,12 +3,19 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class Question extends Component {
     getQuestionAnswer() {
+        if(this.props.highlightAnswerLabel)
+        {
         if (this.props.hasAnsweredCorrectly == 1) {
             return <h2><span className="badge badge-success">Correct!</span></h2>
         } else if (this.props.hasAnsweredCorrectly == 0) {
             return <h2><span className="badge badge-danger">Wrong!</span></h2>
         } else {
             <h2><span></span></h2>
+        }
+        }
+        else
+        {
+            return <h2></h2>
         } 
     }
 
