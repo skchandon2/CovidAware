@@ -4,10 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class Init extends Component {
     render() { 
-        let prevScore = '';
-        if(this.props.previousOverallScore != -1)
+        let prevScore = "";
+        let buttonText = "Play";
+        if(this.props.previousOverallScore !== -1)
         {
             prevScore = "Score: " + this.props.previousOverallScore;
+            buttonText = "Play Again";
         }
         return (
             <Modal show={this.props.showInit} onHide={this.props.onCloseInit} style={{display: "block"}}>
@@ -21,7 +23,7 @@ class Init extends Component {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={this.props.onCloseInit}>Play</Button>
+                    <Button variant="secondary" onClick={this.props.onCloseInit}>{buttonText}</Button>
                 </Modal.Footer>
             </Modal>
 
