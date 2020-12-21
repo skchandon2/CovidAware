@@ -39,7 +39,7 @@ class Selection extends Component {
 
     render() {
         //this.setState({ cssClass: this.props.curClass});//maximum call depth exceed error. possibly due to recursive call
-        this.setAssetStyle(this.props.currentAnswers, this.props.currentId);
+        this.setAssetStyle(this.props.previousCorrectAnswers, this.props.currentId);
         console.log(this.props.currentId)
         return ( 
             <div onClick={() => this.props.onSelection(this.props.selection)} className={this.state.cssClass}>

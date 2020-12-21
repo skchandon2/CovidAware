@@ -80,7 +80,7 @@ class Game extends Component {
                     question = {this.state.currentQuestion} 
                     hasAnsweredCorrectly = {this.state.hasAnsweredCorrectly} 
                 />
-                <Selections onSelection={this.handleSelection} currentAnswers={this.state.previousCorrectAnswers}/>
+                <Selections onSelection={this.handleSelection} previousCorrectAnswers={this.state.previousCorrectAnswers}/>
             </div>
          );
     }
