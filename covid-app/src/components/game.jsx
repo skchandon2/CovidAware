@@ -97,19 +97,21 @@ class Game extends Component {
 
     render() { 
         return ( 
-            <div>
-                <Init 
-                    showInit = {this.state.showInit} 
-                    onCloseInit={this.handleCloseInit}
-                    previousOverallScore = {this.state.previousOverallScore}
-                />
-                <Score score = {this.state.score} />
-                <Question 
-                    question = {this.state.currentQuestion} 
-                    hasAnsweredCorrectly = {this.state.hasAnsweredCorrectly}
-                    highlightAnswerLabel = {this.state.showAnswerLabel} 
-                />
-                <Selections onSelection={this.handleSelection} previousCorrectAnswers={this.state.previousCorrectAnswers}/>
+            <div class="row">
+                <div class="col-sm-12" style={ { height: "93vh"} }>
+                    <Init 
+                        showInit = {this.state.showInit} 
+                        onCloseInit={this.handleCloseInit}
+                        previousOverallScore = {this.state.previousOverallScore}
+                    />
+                    <Score score = {this.state.score} />
+                    <Question 
+                        question = {this.state.currentQuestion} 
+                        hasAnsweredCorrectly = {this.state.hasAnsweredCorrectly}
+                        highlightAnswerLabel = {this.state.showAnswerLabel} 
+                    />
+                    <Selections onSelection={this.handleSelection} previousCorrectAnswers={this.state.previousCorrectAnswers}/>
+                </div>
             </div>
          );
     }
