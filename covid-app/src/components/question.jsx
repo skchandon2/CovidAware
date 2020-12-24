@@ -24,7 +24,7 @@ class Question extends Component {
             <div className="row" style = { { height: "30vh" } }>
                 <div className="col-sm-12" id="cardQuestionBox" style={ { textAlign: "center" } }>
                     
-                    <div className="card" id="" style={ { width: "18rem", position: "relative", display: "inline-block" } }>
+                    <div className="card answerResultLabel" id="" style={ { width: "18rem", position: "relative", display: "inline-block" } }>
                         <div className="card-body">
                             {this.getQuestionAnswer()}
                         </div>

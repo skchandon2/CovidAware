@@ -97,8 +97,8 @@ class Game extends Component {
 
     render() { 
         return ( 
-            <div class="row">
-                <div class="col-sm-12" style={ { height: "93vh"} }>
+            <div className="row">
+                <div className="col-sm-12" style={ { height: "93vh"} }>
                     <Init 
                         showInit = {this.state.showInit} 
                         onCloseInit={this.handleCloseInit}

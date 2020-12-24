@@ -23,7 +23,7 @@ code {
 
 .wgBtnAssetHighlight img
 {
-    border: 6px solid rgb(62, 195, 0);
+    border: 6px solid rgb(44, 139, 0)!important;
     -webkit-box-shadow: 10px 7px 21px 0px rgb(128, 128, 128);
     -moz-box-shadow: 10px 7px 21px 0px rgb(128, 128, 128);
     box-shadow: 10px 7px 21px 0px rgb(128, 128, 128); 
@@ -37,10 +37,43 @@ code {
     box-shadow: 10px 7px 21px 3px rgba(230,230,230,1); 
 }
 
-/*Bootstrap overrid*/
+.badge-yellow
+{
+  color: #212529;
+  background-color: #ffde7c;
+}
+
+.badge-orange
+{
+  color: #212529;
+  background-color: #ff9d00;
+}
+
+
+.assetImg
+{
+  border: 10px solid #fff;
+}
+
+.specialAssetOrange
+{
+  border: 10px solid #fff;
+  filter: hue-rotate(330deg);
+}
+
+/*Bootstrap override*/
+.badge{
+  font-size: 80%!important;
+}
 .card
 {
     width: 25rem; position: relative; display: inline-block;
+}
+
+#cardQuestionBox .answerResultLabel
+{
+  background-color: rgba(128, 128, 128, 0);
+  border: 0px solid #fff;
 }
 
 @media screen and (max-width: 600px) {
@@ -51,4 +84,44 @@ code {
     h4 {
         font-size: 1rem;
     }
+
+    .badge{
+      font-size: 40%!important;
+    }
+
+    .assetImg
+    {
+      border: 4px solid #fff;
+    }
+    .specialAssetOrange
+    {
+      border: 4px solid #fff;
+      
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+      width: 30rem;
+  }
+
+  h4 {
+      font-size: 1.2rem;
+  }
+
+  .badge{
+    font-size: 50%!important;
+  }
+
+  .assetImg
+  {
+    border: 6px solid #fff;
+  }
+  .specialAssetOrange
+  {
+    border: 6px solid #fff;
+    
+  }
+
 }
