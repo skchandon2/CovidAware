@@ -8,7 +8,8 @@ import { getRanromQuestions } from '../services/localQuestionService';
 class Game extends Component {
     state = {
         showInit: true,
-        score: 0, 
+        score: 0,
+        questionCount: 0, 
         questions: getRanromQuestions(),
         currentQuestion:  {
             _id: "0",
@@ -28,6 +29,7 @@ class Game extends Component {
      let question = this.state.questions.shift();
      console.log('question:', question);
      if (question) {
+        this.setState({ questionCount: this.state.questionCount + 1 });
         this.setCurrentQuestion(question);
      } else {
          this.handleReplay();
@@ -80,7 +82,8 @@ class Game extends Component {
     handleReplay = () => {
         this.setState({
             showInit: true,
-            score: 0, 
+            score: 0,
+            questionCount: 0, 
             questions: getRanromQuestions(),
             currentQuestion:  {
                 _id: "0",
@@ -107,6 +110,7 @@ class Game extends Component {
                     <Score score = {this.state.score} />
                     <Question 
                         question = {this.state.currentQuestion} 
+                        questionCount = {this.state.questionCount}
                         hasAnsweredCorrectly = {this.state.hasAnsweredCorrectly}
                         highlightAnswerLabel = {this.state.showAnswerLabel} 
                     />

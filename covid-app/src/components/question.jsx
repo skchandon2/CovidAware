@@ -5,9 +5,9 @@ class Question extends Component {
     getQuestionAnswer() {
         if(this.props.highlightAnswerLabel)
         {
-        if (this.props.hasAnsweredCorrectly == 1) {
+        if (this.props.hasAnsweredCorrectly === 1) {
             return <h2><span className="badge badge-success">Correct!</span></h2>
-        } else if (this.props.hasAnsweredCorrectly == 0) {
+        } else if (this.props.hasAnsweredCorrectly === 0) {
             return <h2><span className="badge badge-danger">Wrong!</span></h2>
         } else {
             <h2><span>&nbsp;</span></h2>
@@ -33,7 +33,7 @@ class Question extends Component {
 
                     <div className="card" style={ { width: "25rem", position: "relative", display: "inline-block" }}>                            
                         <div className="card-body" id="outerQuestionBox">
-                            <h5 className="card-title">Question: </h5>
+                            <h5 className="card-title">Question [{this.props.questionCount}]: </h5>
         <p className="card-text wgQuestionBox" id="displayItem" dangerouslySetInnerHTML={{__html: this.props.question.text}}/>
                         </div>
                         <div className="card-body" id="playAgainBox" style= { { display: "none" }}>
