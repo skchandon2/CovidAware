@@ -21,7 +21,7 @@ class Question extends Component {
 
     render() { 
         return ( 
-            <div className="row" style = { { height: "30vh" } }>
+            <div className="row" style = { { height: "40vh" } }>
                 <div className="col-sm-12" id="cardQuestionBox" style={ { textAlign: "center" } }>
                     
                     <div className="card answerResultLabel" id="" style={ { width: "18rem", position: "relative", display: "inline-block" } }>
@@ -31,7 +31,7 @@ class Question extends Component {
                     </div>
                     <br/>
 
-                    <div className="card" style={ { width: "25rem", position: "relative", display: "inline-block" }}>                            
+                    <div className="card" style={ { position: "relative", display: "inline-block" }}>                            
                         <div className="card-body" id="outerQuestionBox">
                             <h5 className="card-title">Question [{this.props.questionCount}]: </h5>
         <p className="card-text wgQuestionBox" id="displayItem" dangerouslySetInnerHTML={{__html: this.props.question.text}}/>
