@@ -19,7 +19,7 @@ class Selection extends Component {
         if(answerSet.some(a => a._id.includes(curKey)))
         {
             //this.setState({ cssClass: 'col-2 wgBtnAssetHighlight'});
-            this.state.cssClass = "col-2 wgBtnAssetHighlight";
+            this.state.cssClass = "col-md-2 col-4 wgBtnAssetHighlight";
         
             /*
             this.timeout = setTimeout(() => {
@@ -29,7 +29,7 @@ class Selection extends Component {
         }
         else
         {
-            this.state.cssClass = "col-2 wgBtnAsset";
+            this.state.cssClass = "col-md-2 col-4 wgBtnAsset";
         }
     }
 
